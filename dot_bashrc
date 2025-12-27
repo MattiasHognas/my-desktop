@@ -1,0 +1,28 @@
+# ~/.bashrc
+# Clean default bash configuration (Arch / EndeavourOS)
+
+# If not running interactively, do nothing
+[[ $- != *i* ]] && return
+
+# --- History settings ---
+HISTCONTROL=ignoreboth
+HISTSIZE=1000
+HISTFILESIZE=2000
+shopt -s histappend
+shopt -s checkwinsize
+
+# --- Prompt ---
+# user@host:/current/path$
+PS1='\u@\h \w\$ '
+
+# --- Colors for common commands ---
+if command -v dircolors >/dev/null 2>&1; then
+  eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+fi
+
+# --- Common aliases ---
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
